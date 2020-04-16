@@ -28,8 +28,14 @@ class DevCovViewModel(application: Application): AndroidViewModel(application) {
     val  isNetworkError: LiveData<Boolean>
         get() = _isNetworkError
 
+
+    //repository;
     private  var covidRepository = CovidCitiesRepository( CovidCityNetwork, getDatabase(application))
+
+    //network covid data;
     val list = covidRepository.data
+
+    //daily list update;
     val listDaily = covidRepository.dataDaily
 
 
@@ -60,27 +66,12 @@ class DevCovViewModel(application: Application): AndroidViewModel(application) {
 
 
 
-//
-//    fun onNetworkErrorShown(){
-//        _isNetworkError.value = true
-//    }
+
 
     override fun onCleared() {
         super.onCleared()
         SupervisorJob().cancel()
     }
-
-//    class Factory(val app: Application): ViewModelProvider.Factory {
-//        override fun <T : ViewModel?> create(modelClass: Class<T>): T {
-//            if(modelClass.isAssignableFrom(DevCovViewModel::class.java)) {
-//                @Suppress("UNCHECKED_CAST")
-//                return DevCovViewModel as T
-//            }
-//            throw IllegalArgumentException("Unable to construct viewModel")
-//        }
-//
-//
-//    }
 
 
 }

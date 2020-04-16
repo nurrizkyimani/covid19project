@@ -1,31 +1,35 @@
 package com.bocahrokok.covid19project.database
 
+import androidx.annotation.NonNull
+import androidx.annotation.Nullable
 import androidx.room.Entity
 import androidx.room.PrimaryKey
-import com.bocahrokok.covid19project.domain.CovidCountryData
+
+import com.bocahrokok.covid19project.network.NetworkCovidData
 
 @Entity
-data class DatabaseCovidCountry constructor(
+data class DatabaseCovidCountry (
     @PrimaryKey
-    val iso3: String,
     val countryRegion: String,
-    val confirmed: Int,
-    val recovered: Int,
-    val deaths: Int,
-    val active: Int,
-    val lastUpdate: Long
+    val confirmed: Int? = 0,
+    val recovered: Int? = 0,
+    val deaths: Int? = 0,
+    val active: Int? = 0,
+    val lastUpdate: Long? = 0,
+    val iso3: String?
+
 )
 
-fun List<DatabaseCovidCountry>.asDomainModel(): List<CovidCountryData> {
+fun List<DatabaseCovidCountry>.asDomainModel(): List<NetworkCovidData> {
     return map {
-        CovidCountryData(
-            iso3 = it.iso3,
+        NetworkCovidData(
             countryRegion= it.countryRegion,
             confirmed= it.confirmed,
             recovered= it.recovered,
             deaths= it.deaths,
             active= it.active,
-            lastUpdate= it.lastUpdate
+            lastUpdate= it.lastUpdate,
+            iso3 = it.iso3
         )
     }
 }
