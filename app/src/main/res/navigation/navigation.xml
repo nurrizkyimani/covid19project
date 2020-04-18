@@ -9,7 +9,7 @@
 
     <fragment
             android:id="@+id/fragmentOverview"
-            android:name="com.bocahrokok.covid19project.FragmentOverview"
+            android:name="com.bocahrokok.covid19project.ui.ListFragment"
             android:label="fragment_overview"
             tools:layout="@layout/fragment_overview">
 
