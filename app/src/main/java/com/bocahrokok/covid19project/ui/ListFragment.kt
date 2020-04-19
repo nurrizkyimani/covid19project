@@ -9,7 +9,6 @@ import android.widget.Toast
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.bocahrokok.covid19project.CovidCityListAdapter
 import com.bocahrokok.covid19project.R
 
 
@@ -77,7 +76,9 @@ class ListFragment : Fragment(R.layout.fragment_overview) {
                 it.layoutManager= LinearLayoutManager(requireContext())
                 it.setHasFixedSize(true)
                 it.adapter =
-                    CovidCityListAdapter(cityList)
+                    CovidCityListAdapter(
+                        cityList
+                    )
             }
         })
     }

@@ -1,13 +1,12 @@
-package com.bocahrokok.covid19project
+package com.bocahrokok.covid19project.ui
 
-import android.text.Layout
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
+import com.bocahrokok.covid19project.R
 import com.bocahrokok.covid19project.databinding.RvCityBinding
 import com.bocahrokok.covid19project.network.NetworkCovidData
-import kotlin.coroutines.coroutineContext
 
 class CovidCityListAdapter(val cityList: List<NetworkCovidData>) : RecyclerView.Adapter<CovidCityListAdapter.CityListViewHolder>() {
 
@@ -17,7 +16,7 @@ class CovidCityListAdapter(val cityList: List<NetworkCovidData>) : RecyclerView.
     //create the viewholder
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) =  CityListViewHolder(DataBindingUtil.inflate(
             LayoutInflater.from(parent.context),
-            R.layout.rv_city,
+        R.layout.rv_city,
             parent,
             false
 

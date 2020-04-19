@@ -5,13 +5,21 @@
         xmlns:app="http://schemas.android.com/apk/res-auto"
         xmlns:tools="http://schemas.android.com/tools"
         android:id="@+id/navigation"
-        app:startDestination="@id/fragmentOverview">
+        app:startDestination="@id/home_fragment">
 
     <fragment
-            android:id="@+id/fragmentOverview"
+            android:id="@+id/fragment_overview"
             android:name="com.bocahrokok.covid19project.ui.ListFragment"
             android:label="fragment_overview"
-            tools:layout="@layout/fragment_overview">
-
-    </fragment>
+            tools:layout="@layout/fragment_overview"/>
+    <fragment
+            android:id="@+id/home_fragment"
+            android:name="com.bocahrokok.covid19project.ui.HomeFragment"
+            android:label="fragment_home"
+            tools:layout="@layout/fragment_home" />
+    <fragment
+            android:id="@+id/profile_fragment"
+            android:name="com.bocahrokok.covid19project.ui.ProfileFragment"
+            android:label="fragment_profile"
+            tools:layout="@layout/fragment_profile" />
 </navigation>
