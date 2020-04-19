@@ -1,35 +1,41 @@
 package com.bocahrokok.covid19project.network
 
-import com.bocahrokok.covid19project.domain.CovidCountryData
-import com.squareup.moshi.Json
-import com.squareup.moshi.JsonClass
+import android.provider.ContactsContract
+import com.bocahrokok.covid19project.database.DatabaseCovidCountry
+import com.google.gson.annotations.SerializedName
 
-@JsonClass(generateAdapter = true)
-data class NetworkCovidDataContainer(val countriesData: List<NetworkCovidData>)
-
-
-@JsonClass(generateAdapter = true)
 data class NetworkCovidData(
+
+    @SerializedName("countryRegion")
     val countryRegion: String,
-    val confirmed: Int,
-    val recovered: Int,
-    val deaths: Int,
-    val active: Int,
-    val lastUpdate: Long,
-    val iso3: String
+    @SerializedName("confirmed")
+    val confirmed: Int? = 0,
+    @SerializedName("recovered")
+    val recovered: Int? = 0,
+    @SerializedName("deaths")
+    val deaths: Int? = 0,
+    @SerializedName("active")
+    val active: Int? = 0,
+    @SerializedName("lastUpdate")
+    val lastUpdate: Long? = 0,
+    @SerializedName("iso2")
+    val iso3: String?
+
 )
 
-fun NetworkCovidDataContainer.asDomainModel(): List<CovidCountryData> {
-    return countriesData.map {
-        CovidCountryData(
-            iso3 = it.iso3,
+
+
+fun List<NetworkCovidData>.asDatabaseModel(): List<DatabaseCovidCountry>{
+    return map {
+        DatabaseCovidCountry(
             countryRegion= it.countryRegion,
             confirmed= it.confirmed,
             recovered= it.recovered,
             deaths= it.deaths,
             active= it.active,
-            lastUpdate= it.lastUpdate
-
+            lastUpdate= it.lastUpdate,
+            iso3 = it.iso3
         )
     }
 }
+
