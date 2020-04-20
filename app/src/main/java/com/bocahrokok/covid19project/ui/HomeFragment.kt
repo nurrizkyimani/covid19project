@@ -11,6 +11,7 @@ import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.bocahrokok.covid19project.R
 import com.bocahrokok.covid19project.viewmodels.DevCovViewModel
+import com.bocahrokok.covid19project.viewmodels.HomeViewModel
 import kotlinx.android.synthetic.main.fragment_home.*
 
 /**
@@ -19,32 +20,42 @@ import kotlinx.android.synthetic.main.fragment_home.*
 class HomeFragment : Fragment() {
 
 
-    private val viewModel: DevCovViewModel by viewModels { defaultViewModelProviderFactory}
+    private val listViewModel: DevCovViewModel by viewModels { defaultViewModelProviderFactory}
+    private val homeViewModel: HomeViewModel by viewModels {  defaultViewModelProviderFactory }
 
-
-    fun showData(){
-        viewModel.data.observe(this, Observer {
-            Toast.makeText(context, it.size.toString(), Toast.LENGTH_LONG)
-//            tv_home_testing.text = it.toString()
+    fun showNewsData(){
+        homeViewModel.newsList.observe(this, Observer {
+            Toast.makeText(context, it.toString(), Toast.LENGTH_LONG)
+            tv_home_testing.text = it.toString()
         })
+
     }
 
-    fun showDatafromRoom(){
-        viewModel.list.observe(this, Observer {
-            Toast.makeText(context, it.size.toString(), Toast.LENGTH_LONG)
-        })
-    }
 
-    fun showDataDailyfromRoom(){
-        viewModel.listDaily.observe(this, Observer {
-            Toast.makeText(context, it.size.toString(), Toast.LENGTH_LONG)
-//            tv_home_testing.text = it.toString()
-        })
-    }
+//    fun showData(){
+//        viewModel.data.observe(this, Observer {
+//            Toast.makeText(context, it.size.toString(), Toast.LENGTH_LONG)
+////            tv_home_testing.text = it.toString()
+//        })
+//    }
+//
+//    fun showDatafromRoom(){
+//        viewModel.list.observe(this, Observer {
+//            Toast.makeText(context, it.size.toString(), Toast.LENGTH_LONG)
+//        })
+//    }
+//
+//    fun showDataDailyfromRoom(){
+//        viewModel.listDaily.observe(this, Observer {
+//            Toast.makeText(context, it.size.toString(), Toast.LENGTH_LONG)
+////            tv_home_testing.text = it.toString()
+//        })
+//    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        showDataDailyfromRoom()
+        showNewsData()
+
 
         val layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
     }
