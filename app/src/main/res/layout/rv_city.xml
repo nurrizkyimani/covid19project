@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        >
+
+    <data>
+        <variable
+                name="list"
+                type="com.bocahrokok.covid19project.network.NetworkCovidData"
+                />
+
+    </data>
+
+
+
+
+<androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_margin="8dp"
+        android:background="@color/colorPrimary"
+        android:layout_height="wrap_content">
+
+
+
+
+
+    <TextView
+            android:id="@+id/tv_region"
+            android:textColor="@color/colorWhite"
+            android:layout_width="124dp"
+            android:layout_height="21dp"
+            android:layout_marginStart="36dp"
+            android:layout_marginTop="8dp"
+            android:text="region"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+
+            />
+
+    <TextView
+            android:id="@+id/tv_confirmed"
+            android:textColor="@color/colorWhite"
+            android:layout_width="125dp"
+            android:layout_height="21dp"
+            android:layout_marginTop="8dp"
+            android:text="test"
+            app:layout_constraintEnd_toStartOf="@+id/tv_last_update"
+            app:layout_constraintStart_toEndOf="@+id/tv_region"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+            android:id="@+id/tv_last_update"
+            android:textColor="@color/colorWhite"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="No"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.909"
+            app:layout_constraintStart_toEndOf="@+id/tv_region"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+            android:id="@+id/tv_death"
+            android:textColor="@color/colorWhite"
+            android:layout_width="121dp"
+            android:layout_height="19dp"
+            android:layout_marginStart="188dp"
+            android:text="test"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_confirmed"
+            app:layout_constraintVertical_bias="0.653" />
+
+    <TextView
+            android:id="@+id/tv_iso"
+            android:textColor="@color/colorWhite"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="28dp"
+            android:layout_marginEnd="16dp"
+            android:text="test"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_last_update" />
+
+    <TextView
+            android:id="@+id/tv_recovered"
+            android:textColor="@color/colorWhite"
+            android:layout_width="117dp"
+            android:layout_height="20dp"
+            android:layout_marginStart="65dp"
+            android:layout_marginEnd="80dp"
+            android:layout_marginBottom="16dp"
+            android:text="test"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/tv_death"
+            app:layout_constraintHorizontal_bias="0.297"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_region"
+            app:layout_constraintVertical_bias="0.942" />
+</androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</layout>
