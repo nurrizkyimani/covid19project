@@ -111,7 +111,7 @@ dependencies {
     implementation "android.arch.navigation:navigation-ui-ktx:$navigationVersion"
 
 
-    kapt "androidx.lifecycle:lifecycle-compiler:2.2.0"
+//    kapt "androidx.lifecycle:lifecycle-compiler:2.2.0"
 
 
     // ViewModel

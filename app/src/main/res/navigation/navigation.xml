@@ -18,7 +18,7 @@
             android:label="fragment_home"
             tools:layout="@layout/fragment_home" />
     <fragment
-            android:id="@+id/profile_fragment"
+            android:id="@+id/fragment_inform"
             android:name="com.bocahrokok.covid19project.ui.ProfileFragment"
             android:label="fragment_profile"
             tools:layout="@layout/fragment_profile" />

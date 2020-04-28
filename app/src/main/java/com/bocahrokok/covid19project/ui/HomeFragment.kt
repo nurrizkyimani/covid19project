@@ -1,6 +1,7 @@
 package com.bocahrokok.covid19project.ui
 
 import android.app.Application
+import android.content.Context
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -46,7 +47,7 @@ class HomeFragment() : Fragment() {
         val layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
 
 //        showNewsData()
-            showNewsResponse()
+//            showNewsResponse()
 
 
 
@@ -62,14 +63,40 @@ class HomeFragment() : Fragment() {
 
     }
 
-    fun showNewsResponse(){
-        homeViewModel.newsReponse.observe(this, Observer { response ->
-            tv_home_testing.text =  response.body()?.articles.toString()
-        }
-//            Toast.makeText(context,"Fetch done", Toast.LENGTH_LONG).show()
+    override fun onActivityCreated(savedInstanceState: Bundle?) {
+        super.onActivityCreated(savedInstanceState)
+        homeViewModel.newsResponseList.observe(viewLifecycleOwner, Observer { list ->
+            rv_home_news_card.also {
+                it.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
+                it.setHasFixedSize(true)
+                it.adapter = NewsCardAdapter(list)
+            }
 
-        )
+         })
+
+
+        homeViewModel.indoSumResponse.observe(viewLifecycleOwner, Observer { response ->
+            response.body()?.apply {
+                tv_recov_text.text = recovered?.value.toString()
+            }
+
+            tv_death_text.text =  response.body()?.deaths?.value.toString()
+            tv_conf_text.text = response.body()?.confirmed?.value.toString()
+        })
     }
+
+
+
+//    fun showNewsResponse(){
+////        homeViewModel.newsReponse.observe(this, Observer { response ->
+////            tv_home_testing.text =  response.body()?.articles.toString()
+////        }
+//
+//
+//            Toast.makeText(context,"Fetch done", Toast.LENGTH_LONG).show()
+//
+//        )
+//    }
 
 
 //    fun showNewsData(){

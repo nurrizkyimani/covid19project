@@ -16,7 +16,7 @@ class CovidCityListAdapter(val cityList: List<NetworkCovidData>) : RecyclerView.
     //create the viewholder
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) =  CityListViewHolder(DataBindingUtil.inflate(
             LayoutInflater.from(parent.context),
-        R.layout.rv_city,
+            R.layout.rv_city,
             parent,
             false
 

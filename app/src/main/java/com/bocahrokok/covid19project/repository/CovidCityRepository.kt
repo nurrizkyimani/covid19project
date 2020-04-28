@@ -28,6 +28,8 @@ class CovidCitiesRepository ( private val service : CovidCityNetwork, private va
 
     suspend fun fetchNewsResponse() = NewsInstance.instanceNewsReponse.getEverythingNews()
 
+    suspend fun CovidIndoSum() = service.covidcities.getCovidIndonesiaSum()
+
     suspend fun fetchNewsInsertRoom(){
         withContext(Dispatchers.IO){
             Timber.d("Whipe it")
