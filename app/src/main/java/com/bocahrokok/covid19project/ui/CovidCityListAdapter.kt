@@ -22,7 +22,6 @@ class CovidCityListAdapter(val cityList: List<NetworkCovidData>) : RecyclerView.
 
         ))
 
-
     override fun getItemCount() = cityList.size
 
     //bind the data

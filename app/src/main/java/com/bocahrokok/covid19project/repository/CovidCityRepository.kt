@@ -2,9 +2,11 @@ package com.bocahrokok.covid19project.repository
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.Transformations
+import com.bocahrokok.covid19project.R
 import com.bocahrokok.covid19project.database.*
 import com.bocahrokok.covid19project.domain.CovidDaily
 import com.bocahrokok.covid19project.domain.CovidNewsData
+import com.bocahrokok.covid19project.domain.GridInfo
 import com.bocahrokok.covid19project.network.CovidCityNetwork
 import com.bocahrokok.covid19project.network.NetworkCovidData
 import com.bocahrokok.covid19project.network.NewsInstance
@@ -46,6 +48,20 @@ class CovidCitiesRepository ( private val service : CovidCityNetwork, private va
             database.covidCityDao.insertCovidDaily(listCovidDaily)
 
         }
+    }
+
+
+     fun setGridInList(): ArrayList<GridInfo> {
+
+        var gridItems: ArrayList<GridInfo> = ArrayList()
+
+        gridItems.add(GridInfo(R.drawable.ic_coronatime, "What is Corona?"))
+        gridItems.add(GridInfo(R.drawable.ic_cough, "Gejala"))
+        gridItems.add(GridInfo(R.drawable.ic_pencegahan, "Pencegahan"))
+        gridItems.add(GridInfo(R.drawable.ic_penyembuhan, "Penyembuhan"))
+
+        return gridItems
+
     }
 
     val data : LiveData<List<NetworkCovidData>> = Transformations.map(database.covidCityDao.getCovidCities()){

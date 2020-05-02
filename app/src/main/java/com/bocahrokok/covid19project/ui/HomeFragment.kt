@@ -29,7 +29,6 @@ class HomeFragment() : Fragment() {
     lateinit var homeViewModel: HomeViewModel
 
 
-    private val listViewModel: DevCovViewModel by viewModels { defaultViewModelProviderFactory}
 //    private val homeViewModel: HomeViewModel by viewModels {  defaultViewModelProviderFactory }
 
 
@@ -71,6 +70,7 @@ class HomeFragment() : Fragment() {
                 it.setHasFixedSize(true)
                 it.adapter = NewsCardAdapter(list)
             }
+
 
          })
 

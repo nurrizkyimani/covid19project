@@ -14,13 +14,21 @@
     </data>
 
 
+    <androidx.cardview.widget.CardView
+
+            android:layout_width="match_parent"
+            android:layout_height="120dp"
+            android:layout_margin="8dp"
+            app:cardElevation="5dp"
+            app:cardCornerRadius="10dp"
+            >
+
+
 
 
 <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_margin="8dp"
-        android:background="@color/colorPrimary"
-        android:layout_height="wrap_content">
+        android:layout_height="match_parent">
 
 
 
@@ -28,7 +36,7 @@
 
     <TextView
             android:id="@+id/tv_region"
-            android:textColor="@color/colorWhite"
+
             android:layout_width="124dp"
             android:layout_height="21dp"
             android:layout_marginStart="36dp"
@@ -41,7 +49,6 @@
 
     <TextView
             android:id="@+id/tv_confirmed"
-            android:textColor="@color/colorWhite"
             android:layout_width="125dp"
             android:layout_height="21dp"
             android:layout_marginTop="8dp"
@@ -52,7 +59,6 @@
 
     <TextView
             android:id="@+id/tv_last_update"
-            android:textColor="@color/colorWhite"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
@@ -64,7 +70,6 @@
 
     <TextView
             android:id="@+id/tv_death"
-            android:textColor="@color/colorWhite"
             android:layout_width="121dp"
             android:layout_height="19dp"
             android:layout_marginStart="188dp"
@@ -76,7 +81,6 @@
 
     <TextView
             android:id="@+id/tv_iso"
-            android:textColor="@color/colorWhite"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="28dp"
@@ -87,7 +91,6 @@
 
     <TextView
             android:id="@+id/tv_recovered"
-            android:textColor="@color/colorWhite"
             android:layout_width="117dp"
             android:layout_height="20dp"
             android:layout_marginStart="65dp"
@@ -101,6 +104,9 @@
             app:layout_constraintTop_toBottomOf="@+id/tv_region"
             app:layout_constraintVertical_bias="0.942" />
 </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    </androidx.cardview.widget.CardView>
 
 
 </layout>

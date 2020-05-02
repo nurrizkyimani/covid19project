@@ -1,9 +1,11 @@
-
+<ScrollView
+        tools:context=".ui.ProfileFragment"
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_height="match_parent"
+        android:layout_width="match_parent">
 <androidx.constraintlayout.widget.ConstraintLayout
-tools:context=".ui.ProfileFragment"
-xmlns:android="http://schemas.android.com/apk/res/android"
-xmlns:app="http://schemas.android.com/apk/res-auto"
-xmlns:tools="http://schemas.android.com/tools"
 android:layout_height="match_parent"
 android:layout_width="match_parent">
 
@@ -63,13 +65,18 @@ android:layout_width="match_parent">
             <LinearLayout
 
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
+                    android:layout_height="wrap_content"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
 
                 <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:fontFamily="sans-serif-black"
+                        android:text="Donate"
                         android:textAlignment="textStart"
-                        android:text="Donate" />
+                        android:textSize="18sp" />
 
 
             </LinearLayout>
@@ -79,7 +86,7 @@ android:layout_width="match_parent">
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="40dp"
-                    android:text="Confirmed"
+                    android:text="GoPay"
                     android:textSize="16sp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
@@ -91,7 +98,7 @@ android:layout_width="match_parent">
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="2dp"
-                    android:text="Recovered"
+                    android:text="Dana"
                     android:textSize="16sp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toStartOf="@+id/tv_sembuh"
@@ -103,7 +110,7 @@ android:layout_width="match_parent">
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="40dp"
-                    android:text="Death"
+                    android:text="Ovo"
                     android:textSize="16sp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent" />
@@ -170,7 +177,11 @@ android:layout_width="match_parent">
 
     </LinearLayout>
 
-
+    <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_grid_list"
+            android:layout_margin="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
 
 
 
@@ -178,3 +189,5 @@ android:layout_width="match_parent">
 </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
+
+</ScrollView>
