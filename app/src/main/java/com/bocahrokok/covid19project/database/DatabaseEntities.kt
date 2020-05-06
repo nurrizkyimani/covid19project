@@ -15,7 +15,7 @@ data class DatabaseCovidCountry (
     val recovered: Int? = 0,
     val deaths: Int? = 0,
     val active: Int? = 0,
-    val lastUpdate: Long? = 0,
+    val lastUpdate: Long = 0,
     val iso3: String?
 
 )

@@ -15,7 +15,7 @@
 
 
     <androidx.cardview.widget.CardView
-
+            app:cardBackgroundColor="@color/colorPrimary"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="8dp"
@@ -35,7 +35,7 @@
             <ImageView
                     android:id="@+id/img_ilus"
                     android:layout_centerHorizontal="true"
-                    android:src="@drawable/ic_coronatime"
+                    app:srcCompat="@drawable/ic_coronatime"
                     android:layout_width="70dp"
                     android:layout_height="70dp"
                     android:layout_marginLeft="8dp"
@@ -50,6 +50,7 @@
                     android:layout_marginLeft="25dp"
                     android:layout_marginTop="15dp"
                     android:text="Covid-19"
+                    android:textColor="#FFF"
                     android:layout_centerHorizontal="true"
                     />
 

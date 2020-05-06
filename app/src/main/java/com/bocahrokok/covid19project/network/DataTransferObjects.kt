@@ -17,7 +17,7 @@ data class NetworkCovidData(
     @SerializedName("active")
     val active: Int? = 0,
     @SerializedName("lastUpdate")
-    val lastUpdate: Long? = 0,
+    val lastUpdate: Long = 0,
     @SerializedName("iso2")
     val iso3: String?
 

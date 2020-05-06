@@ -21,7 +21,7 @@ import kotlinx.android.synthetic.main.fragment_overview.*
  */
 class ListFragment : Fragment(R.layout.fragment_overview) {
 
-    private lateinit var binding: FragmentOverviewBinding
+
     private lateinit var viewModel2: DevCovViewModel
     private lateinit var adapter: CovidCityListAdapter
 
@@ -63,8 +63,6 @@ class ListFragment : Fragment(R.layout.fragment_overview) {
         savedInstanceState: Bundle?
     ): View? {
 //
-        binding = FragmentOverviewBinding.inflate(inflater, container, false)
-//      binding.viewModel = viewModel
 
         return inflater.inflate(R.layout.fragment_overview, container, false)
     }

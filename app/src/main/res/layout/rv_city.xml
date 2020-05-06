@@ -5,19 +5,12 @@
         xmlns:tools="http://schemas.android.com/tools"
         >
 
-    <data>
-        <variable
-                name="list"
-                type="com.bocahrokok.covid19project.network.NetworkCovidData"
-                />
-
-    </data>
 
 
     <androidx.cardview.widget.CardView
 
             android:layout_width="match_parent"
-            android:layout_height="120dp"
+            android:layout_height="wrap_content"
             android:layout_margin="8dp"
             app:cardElevation="5dp"
             app:cardCornerRadius="10dp"
@@ -26,84 +19,126 @@
 
 
 
-<androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        <androidx.constraintlayout.widget.ConstraintLayout
+
+                android:id="@+id/root"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="1dp"
+                android:padding="@dimen/space_x2"
+                android:clickable="true"
+                android:focusable="true"
+                app:layout_goneMarginBottom="@dimen/space_half">
 
 
 
+            <ImageView
+                    android:id="@+id/img_icon"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:srcCompat="@drawable/ic_location" />
+
+            <TextView
+                    android:id="@+id/txt_location"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/space_x3"
+                    android:textColor="@color/cool_grey"
+                    android:textSize="@dimen/text_14"
+                    app:layout_constraintStart_toEndOf="@id/img_icon"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:text="20 Januari 2019" />
+
+            <TextView
+                    android:id="@+id/txt_data"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+
+                    android:textColor="@color/color_confirmed"
+                    android:textSize="@dimen/text_14"
+
+                    app:layout_constraintStart_toStartOf="@+id/txt_location"
+                    app:layout_constraintTop_toBottomOf="@+id/txt_location"
+                    tools:text="Confirmed : 220 "
+                    tools:visibility="visible">
+
+            </TextView>
+
+            <TextView
+                    android:id="@+id/txt_rcv"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="24dp"
+                    android:layout_marginLeft="24dp"
+                    android:layout_marginTop="4dp"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+
+                    android:textColor="@color/color_recovered"
+                    android:textSize="@dimen/text_14"
+
+                    app:layout_constraintStart_toEndOf="@+id/img_icon"
+                    app:layout_constraintTop_toBottomOf="@+id/txt_data"
+                    tools:text="Recovered :  "
+                    tools:visibility="visible">
+
+            </TextView>
+
+            <TextView
+                    android:id="@+id/txt_death"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="24dp"
+                    android:layout_marginLeft="24dp"
+                    android:layout_marginTop="4dp"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+
+                    android:textColor="@color/color_death"
+                    android:textSize="@dimen/text_14"
+
+                    app:layout_constraintStart_toEndOf="@+id/txt_rcv"
+                    app:layout_constraintTop_toBottomOf="@+id/txt_data"
+                    tools:text="Death : 220 "
+                    tools:visibility="visible">
+
+            </TextView>
+
+            <TextView
+                    android:id="@+id/txt_information"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="24dp"
+                    android:layout_marginLeft="24dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="24dp"
+                    android:layout_marginRight="24dp"
+                    android:layout_marginBottom="12dp"
+                    android:textColor="@color/cool_grey"
+                    android:textSize="@dimen/text_14"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/img_icon"
+                    app:layout_constraintTop_toBottomOf="@+id/barrier3"
+                    tools:text="Tap onData source : https://covid19.mathdro.id/api/" />
+
+            <androidx.constraintlayout.widget.Barrier
+                    android:id="@+id/barrier3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:barrierDirection="bottom"
+                    app:constraint_referenced_ids="txt_death,txt_rcv"
+                    tools:layout_editor_absoluteX="16dp"
+                    tools:layout_editor_absoluteY="142dp" />
 
 
-    <TextView
-            android:id="@+id/tv_region"
-
-            android:layout_width="124dp"
-            android:layout_height="21dp"
-            android:layout_marginStart="36dp"
-            android:layout_marginTop="8dp"
-            android:text="region"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-
-            />
-
-    <TextView
-            android:id="@+id/tv_confirmed"
-            android:layout_width="125dp"
-            android:layout_height="21dp"
-            android:layout_marginTop="8dp"
-            android:text="test"
-            app:layout_constraintEnd_toStartOf="@+id/tv_last_update"
-            app:layout_constraintStart_toEndOf="@+id/tv_region"
-            app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-            android:id="@+id/tv_last_update"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:text="No"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.909"
-            app:layout_constraintStart_toEndOf="@+id/tv_region"
-            app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-            android:id="@+id/tv_death"
-            android:layout_width="121dp"
-            android:layout_height="19dp"
-            android:layout_marginStart="188dp"
-            android:text="test"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tv_confirmed"
-            app:layout_constraintVertical_bias="0.653" />
-
-    <TextView
-            android:id="@+id/tv_iso"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="28dp"
-            android:layout_marginEnd="16dp"
-            android:text="test"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tv_last_update" />
-
-    <TextView
-            android:id="@+id/tv_recovered"
-            android:layout_width="117dp"
-            android:layout_height="20dp"
-            android:layout_marginStart="65dp"
-            android:layout_marginEnd="80dp"
-            android:layout_marginBottom="16dp"
-            android:text="test"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/tv_death"
-            app:layout_constraintHorizontal_bias="0.297"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tv_region"
-            app:layout_constraintVertical_bias="0.942" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
 
     </androidx.cardview.widget.CardView>

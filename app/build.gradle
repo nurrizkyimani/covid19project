@@ -9,6 +9,8 @@ apply plugin: 'kotlin-kapt'
 apply plugin: 'androidx.navigation.safeargs'
 
 
+
+
 android {
     viewBinding {
         enabled = true
@@ -17,6 +19,7 @@ android {
     compileSdkVersion 29
     buildToolsVersion "29.0.0"
     defaultConfig {
+        vectorDrawables.useSupportLibrary = true
         applicationId "com.bocahrokok.covid19project"
         minSdkVersion 17
         targetSdkVersion 29

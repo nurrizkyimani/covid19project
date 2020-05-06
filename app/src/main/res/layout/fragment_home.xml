@@ -6,6 +6,7 @@
         xmlns:app="http://schemas.android.com/apk/res-auto"
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_height="match_parent"
+
         android:layout_width="match_parent">
 
 <androidx.constraintlayout.widget.ConstraintLayout
@@ -45,7 +46,7 @@
                                 android:fontFamily="sans-serif-black"
                                 android:gravity="end"
                                 android:text="Dashboard"
-                                android:textColor="#5E5E5E"
+                                android:textColor="@color/colorPrimaryDark"
                                 android:textSize="24sp" />
 
 
@@ -63,7 +64,7 @@
                                 android:fontFamily="sans-serif"
                                 android:gravity="right"
                                 android:text="Covid-19 Pandemic"
-                                android:textColor="#5E5E5E"
+                                android:textColor="@color/colorPrimaryDark"
                                 android:textSize="18dp" />
 
                     </LinearLayout>
@@ -89,12 +90,15 @@
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_alignParentLeft="true"
-                                    android:layout_marginEnd="24dp"
+                                    android:layout_marginEnd="16dp"
                                     android:layout_marginBottom="8dp"
                                     android:text="Confirmed"
                                     android:textSize="16sp"
+                                    android:textColor="@color/color_confirmed"
                                     app:layout_constraintBottom_toBottomOf="parent"
-                                    app:layout_constraintEnd_toEndOf="parent" />
+                                    app:layout_constraintEnd_toEndOf="parent"
+                                    app:layout_constraintTop_toTopOf="@+id/tv_meninggal"
+                                    app:layout_constraintVertical_bias="0.0" />
 
                             <TextView
                                     android:id="@+id/tv_meninggal"
@@ -105,61 +109,57 @@
 
 
                                     android:layout_centerVertical="true"
-                                    android:layout_marginStart="32dp"
-                                    android:layout_marginEnd="38dp"
+                                    android:layout_marginStart="56dp"
                                     android:layout_marginBottom="8dp"
                                     android:text="Recovered"
                                     android:textAlignment="center"
                                     android:textSize="16sp"
+                                    android:textColor="@color/color_recovered"
                                     app:layout_constraintBottom_toBottomOf="parent"
-                                    app:layout_constraintEnd_toStartOf="@+id/tv_kasus"
-                                    app:layout_constraintHorizontal_bias="0.77"
-                                    app:layout_constraintStart_toEndOf="@+id/tv_sembuh" />
-
+                                    app:layout_constraintStart_toEndOf="@+id/tv_sembuh"
+                                    app:layout_constraintTop_toTopOf="@+id/tv_sembuh"
+                                    app:layout_constraintVertical_bias="0.0" />
 
                             <TextView
                                     android:id="@+id/tv_sembuh"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_alignParentRight="true"
-                                    android:layout_marginStart="24dp"
                                     android:layout_marginBottom="8dp"
                                     android:text="Death"
                                     android:textSize="16sp"
+                                    android:textColor="@color/color_death"
                                     app:layout_constraintBottom_toBottomOf="parent"
-                                    app:layout_constraintStart_toStartOf="parent" />
+                                    app:layout_constraintStart_toStartOf="@+id/tv_death_text"
+                                    app:layout_constraintTop_toBottomOf="@+id/tv_death_text"
+                                    app:layout_constraintVertical_bias="0.771" />
 
                             <TextView
                                     android:id="@+id/tv_conf_text"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:fontFamily="sans-serif-black"
-                                    android:textSize="30dp"
-                                    android:layout_marginTop="30dp"
                                     android:layout_marginEnd="20dp"
+                                    android:fontFamily="sans-serif-black"
                                     android:text="700"
-
-                                    android:layout_marginLeft="10dp"
+                                    android:textSize="30dp"
+                                    android:textColor="@color/color_confirmed"
                                     app:layout_constraintEnd_toEndOf="parent"
-                                    app:layout_constraintTop_toTopOf="parent" />
+                                    app:layout_constraintTop_toTopOf="@+id/tv_recov_text" />
 
                             <TextView
                                     android:id="@+id/tv_recov_text"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_marginStart="20dp"
-                                    android:layout_marginTop="30dp"
                                     android:layout_marginEnd="50dp"
-                                    android:layout_marginBottom="46dp"
                                     android:fontFamily="sans-serif-black"
                                     android:text="500"
                                     android:textSize="30dp"
-                                    app:layout_constraintBottom_toTopOf="@+id/tv_meninggal"
+                                    android:textColor="@color/color_recovered"
                                     app:layout_constraintEnd_toStartOf="@+id/tv_conf_text"
                                     app:layout_constraintHorizontal_bias="1.0"
                                     app:layout_constraintStart_toEndOf="@+id/tv_death_text"
-                                    app:layout_constraintTop_toTopOf="parent"
-                                    app:layout_constraintVertical_bias="0.0" />
+                                    app:layout_constraintTop_toTopOf="@+id/tv_death_text" />
 
                             <TextView
 
@@ -172,6 +172,7 @@
                                     android:fontFamily="sans-serif-black"
                                     android:text="1500"
                                     android:textSize="30dp"
+                                    android:textColor="@color/color_death"
                                     app:layout_constraintEnd_toStartOf="@+id/tv_recov_text"
                                     app:layout_constraintHorizontal_bias="0.74"
                                     app:layout_constraintStart_toStartOf="parent"
