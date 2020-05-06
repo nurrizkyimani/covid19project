@@ -10,3 +10,8 @@ A covid-19 apps that track news and current data from API. Implement MVVM archit
 4. MVVM
 5. Kotlin Coroutines
 
+
+### License
+
+### Contributing
+
