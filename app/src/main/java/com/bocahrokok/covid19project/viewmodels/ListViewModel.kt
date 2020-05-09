@@ -2,10 +2,10 @@ package com.bocahrokok.covid19project.viewmodels
 
 import android.app.Application
 import androidx.lifecycle.*
-import com.bocahrokok.covid19project.database.getDatabase
+import com.bocahrokok.covid19project.domain.CovidCountryData
 
 import com.bocahrokok.covid19project.network.CovidCityNetwork
-import com.bocahrokok.covid19project.network.NetworkCovidData
+
 
 import com.bocahrokok.covid19project.repository.CovidCitiesRepository
 import kotlinx.coroutines.CoroutineScope
@@ -15,7 +15,7 @@ import kotlinx.coroutines.launch
 import java.io.IOException
 
 
-class DevCovViewModel(application: Application): AndroidViewModel(application) {
+class ListViewModel(application: Application, val covidRepository: CovidCitiesRepository): AndroidViewModel(application) {
 
 
     private val viewModelScope = CoroutineScope(SupervisorJob() + Dispatchers.Main)
@@ -28,18 +28,10 @@ class DevCovViewModel(application: Application): AndroidViewModel(application) {
     val  isNetworkError: LiveData<Boolean>
         get() = _isNetworkError
 
-
-    //repository;
-    private  var covidRepository = CovidCitiesRepository( CovidCityNetwork, getDatabase(application))
-
-    //network covid data;
     val list = covidRepository.data
 
     //daily list update;
     val listDaily = covidRepository.dataDaily
-
-
-
 
 
     init {
@@ -61,7 +53,7 @@ class DevCovViewModel(application: Application): AndroidViewModel(application) {
     }
 
 
-    val data : LiveData<List<NetworkCovidData>> = liveData(Dispatchers.IO) {
+    val data : LiveData<List<CovidCountryData>> = liveData(Dispatchers.IO) {
         val retrievedData = covidRepository.fetchDatafromInternet()
         emit(retrievedData)
     }

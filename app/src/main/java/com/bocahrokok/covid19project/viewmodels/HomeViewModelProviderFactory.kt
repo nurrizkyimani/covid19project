@@ -3,7 +3,6 @@ package com.bocahrokok.covid19project.viewmodels
 import android.app.Application
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import com.bocahrokok.covid19project.database.getDatabase
 import com.bocahrokok.covid19project.network.CovidCityNetwork
 import com.bocahrokok.covid19project.repository.CovidCitiesRepository
 

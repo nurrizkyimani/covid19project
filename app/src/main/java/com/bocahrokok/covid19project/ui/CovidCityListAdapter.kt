@@ -10,12 +10,12 @@ import androidx.databinding.ViewDataBinding
 import androidx.recyclerview.widget.RecyclerView
 import com.bocahrokok.covid19project.R
 import com.bocahrokok.covid19project.databinding.RvCityBinding
-import com.bocahrokok.covid19project.network.NetworkCovidData
+import com.bocahrokok.covid19project.domain.CovidCountryData
 import com.bocahrokok.covid19project.util.Utils
 import kotlinx.android.synthetic.main.rv_city.view.*
 
 
-class CovidCityListAdapter(val cityList: List<NetworkCovidData>) : RecyclerView.Adapter<CovidCityListAdapter.CityListViewHolder>() {
+class CovidCityListAdapter(val cityList: List<CovidCountryData>) : RecyclerView.Adapter<CovidCityListAdapter.CityListViewHolder>() {
 
 
     inner class CityListViewHolder(val rvCityView: View): RecyclerView.ViewHolder(rvCityView)
@@ -39,7 +39,6 @@ class CovidCityListAdapter(val cityList: List<NetworkCovidData>) : RecyclerView.
                txt_location.text = cityList[position].countryRegion
                txt_death.text = "Death: " +  cityList[position].deaths.toString()
                txt_data.text  = "Confirmed: " + cityList[position].confirmed.toString()
-
                txt_rcv.text = "Recovered: "+  cityList[position].recovered.toString()
 //               txt_information.text = "Last Update: " + cityList[position].lastUpdate.toString()
                val date = Utils.formatTime(cityList[position].lastUpdate)

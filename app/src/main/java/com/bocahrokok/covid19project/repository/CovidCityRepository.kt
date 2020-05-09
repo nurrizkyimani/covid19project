@@ -4,22 +4,23 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.Transformations
 import com.bocahrokok.covid19project.R
 import com.bocahrokok.covid19project.database.*
+import com.bocahrokok.covid19project.domain.CovidCountryData
 import com.bocahrokok.covid19project.domain.CovidDaily
 import com.bocahrokok.covid19project.domain.CovidNewsData
 import com.bocahrokok.covid19project.domain.GridInfo
 import com.bocahrokok.covid19project.network.CovidCityNetwork
-import com.bocahrokok.covid19project.network.NetworkCovidData
+
 import com.bocahrokok.covid19project.network.NewsInstance
-import com.bocahrokok.covid19project.network.asDatabaseModel
+
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import timber.log.Timber
 
 
-class CovidCitiesRepository ( private val service : CovidCityNetwork, private val database: CovidCityDao.CovidCityDatabase ) {
+class CovidCitiesRepository ( private val service : CovidCityNetwork, val db: CovidDatabase ) {
 
 
-    suspend fun fetchDatafromInternet(): List<NetworkCovidData>{
+    suspend fun fetchDatafromInternet(): List<CovidCountryData>{
         return service.covidcities.getCovidCountriesData()
     }
 
@@ -32,43 +33,22 @@ class CovidCitiesRepository ( private val service : CovidCityNetwork, private va
 
     suspend fun CovidIndoSum() = service.covidcities.getCovidIndonesiaSum()
 
-    suspend fun fetchNewsInsertRoom(){
-        withContext(Dispatchers.IO){
-            Timber.d("Whipe it")
-        }
-    }
 
     suspend fun fetchDataInsertRoom() {
         withContext(Dispatchers.IO){
             Timber.d("refresh video into room")
             val listNetworkCovidData = service.covidcities.getCovidCountriesData()
-            database.covidCityDao.insertAll(listNetworkCovidData.asDatabaseModel())
-
+            db.getCovidDataDao().insertAll(listNetworkCovidData)
             val listCovidDaily = service.covidcities.getCovidDailyData()
-            database.covidCityDao.insertCovidDaily(listCovidDaily)
+            db.getCovidDataDao().insertCovidDaily(listCovidDaily)
 
         }
     }
 
 
-     fun setGridInList(): ArrayList<GridInfo> {
+    val data : LiveData<List<CovidCountryData>> = db.getCovidDataDao().getCovidCities()
 
-        var gridItems: ArrayList<GridInfo> = ArrayList()
-
-        gridItems.add(GridInfo(R.drawable.ic_coronatime, "What is Corona?"))
-        gridItems.add(GridInfo(R.drawable.ic_cough, "Gejala"))
-        gridItems.add(GridInfo(R.drawable.ic_pencegahan, "Pencegahan"))
-        gridItems.add(GridInfo(R.drawable.ic_penyembuhan, "Penyembuhan"))
-
-        return gridItems
-
-    }
-
-    val data : LiveData<List<NetworkCovidData>> = Transformations.map(database.covidCityDao.getCovidCities()){
-        it.asDomainModel()
-        }
-
-    val dataDaily: LiveData<List<CovidDaily>> = database.covidCityDao.getCovidDaily()
+    val dataDaily: LiveData<List<CovidDaily>> = db.getCovidDataDao().getCovidDaily()
 
 }
 

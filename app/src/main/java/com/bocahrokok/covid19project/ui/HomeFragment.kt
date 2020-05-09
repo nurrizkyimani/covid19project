@@ -13,10 +13,10 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.bocahrokok.covid19project.R
-import com.bocahrokok.covid19project.database.getDatabase
+import com.bocahrokok.covid19project.database.CovidDatabase
 import com.bocahrokok.covid19project.network.CovidCityNetwork
 import com.bocahrokok.covid19project.repository.CovidCitiesRepository
-import com.bocahrokok.covid19project.viewmodels.DevCovViewModel
+
 import com.bocahrokok.covid19project.viewmodels.HomeViewModel
 import com.bocahrokok.covid19project.viewmodels.HomeViewModelProviderFactory
 import kotlinx.android.synthetic.main.fragment_home.*
@@ -29,25 +29,13 @@ class HomeFragment() : Fragment() {
     lateinit var homeViewModel: HomeViewModel
 
 
-//    private val homeViewModel: HomeViewModel by viewModels {  defaultViewModelProviderFactory }
-
-
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        val repository = CovidCitiesRepository(CovidCityNetwork, getDatabase(this.requireContext()))
+        val repository =  CovidCitiesRepository(CovidCityNetwork,CovidDatabase.invoke(requireContext()) )
         val homeViewModelFactory  = HomeViewModelProviderFactory(repository)
         homeViewModel = ViewModelProvider(this, homeViewModelFactory).get(HomeViewModel::class.java)
-
-
-
-
-        val layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
-
-//        showNewsData()
-//            showNewsResponse()
-
 
 
     }

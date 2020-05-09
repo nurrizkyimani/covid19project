@@ -13,7 +13,8 @@ import com.bocahrokok.covid19project.R
 
 
 import com.bocahrokok.covid19project.databinding.FragmentOverviewBinding
-import com.bocahrokok.covid19project.viewmodels.DevCovViewModel
+import com.bocahrokok.covid19project.viewmodels.ListViewModel
+
 import kotlinx.android.synthetic.main.fragment_overview.*
 
 /**
@@ -22,12 +23,12 @@ import kotlinx.android.synthetic.main.fragment_overview.*
 class ListFragment : Fragment(R.layout.fragment_overview) {
 
 
-    private lateinit var viewModel2: DevCovViewModel
+
     private lateinit var adapter: CovidCityListAdapter
 
     //biding utl
 
-    private val viewModel: DevCovViewModel by viewModels { defaultViewModelProviderFactory}
+    private val viewModel: ListViewModel by viewModels { defaultViewModelProviderFactory}
 
     fun showData(){
         viewModel.data.observe(this, Observer {

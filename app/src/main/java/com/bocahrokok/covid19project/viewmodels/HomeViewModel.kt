@@ -5,7 +5,6 @@ import android.widget.Toast
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.bocahrokok.covid19project.database.getDatabase
 import com.bocahrokok.covid19project.domain.Article
 import com.bocahrokok.covid19project.domain.CovidNewsData
 import com.bocahrokok.covid19project.domain.NewsResponse
@@ -32,7 +31,6 @@ class HomeViewModel(val repository: CovidCitiesRepository): ViewModel() {
 
 
     init {
-//      getNewsFromRepository()
         getNewsReponse()
         covidIndoSumViewModel()
 

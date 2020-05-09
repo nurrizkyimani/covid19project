@@ -18,7 +18,6 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
         this.supportActionBar?.hide()
 
         val navController = Navigation.findNavController(this, R.id.myNavHostFragment)

@@ -12,12 +12,11 @@ import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 
 import com.bocahrokok.covid19project.R
-import com.bocahrokok.covid19project.database.getDatabase
+import com.bocahrokok.covid19project.database.CovidDatabase
+
 import com.bocahrokok.covid19project.domain.GridInfo
 import com.bocahrokok.covid19project.network.CovidCityNetwork
 import com.bocahrokok.covid19project.repository.CovidCitiesRepository
-import com.bocahrokok.covid19project.viewmodels.DevCovViewModel
-import com.bocahrokok.covid19project.viewmodels.HomeViewModel
 import com.bocahrokok.covid19project.viewmodels.ProfilViewModel
 import com.bocahrokok.covid19project.viewmodels.ProfilViewModelProviderFactory
 import kotlinx.android.synthetic.main.fragment_profile.*
@@ -25,7 +24,7 @@ import kotlinx.android.synthetic.main.fragment_profile.*
 /**
  * A simple [Fragment] subclass.
  */
-class ProfileFragment : Fragment() {
+class ProfileFragment() : Fragment() {
 
 //    private val viewModel: ProfilViewModel by viewModels { defaultViewModelProviderFactory}
 
@@ -41,9 +40,7 @@ class ProfileFragment : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
-
-        val repository = CovidCitiesRepository(CovidCityNetwork, getDatabase(this.requireContext()))
+        val repository =  CovidCitiesRepository(CovidCityNetwork, CovidDatabase.invoke(requireContext()) )
         val ProfilViewModelProviderFactory = ProfilViewModelProviderFactory(repository)
 
         profilViewModel = ViewModelProvider(this, ProfilViewModelProviderFactory).get(ProfilViewModel::class.java)
