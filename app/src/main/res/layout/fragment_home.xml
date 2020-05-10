@@ -203,6 +203,7 @@
                                 />
 
                         <TextView
+                                android:id="@+id/more_detail_click"
                                 android:textAlignment="textEnd"
                                 android:paddingRight="20dp"
                                 android:layout_width="match_parent"

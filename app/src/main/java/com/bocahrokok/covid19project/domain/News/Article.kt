@@ -1,7 +1,5 @@
-package com.bocahrokok.covid19project.domain
+package com.bocahrokok.covid19project.domain.News
 
-
-import com.google.gson.annotations.SerializedName
 
 data class Article(
     val author: String,

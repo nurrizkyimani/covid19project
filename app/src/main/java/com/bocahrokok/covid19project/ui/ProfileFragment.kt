@@ -5,8 +5,6 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.fragment.app.viewModels
-import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -14,9 +12,10 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.bocahrokok.covid19project.R
 import com.bocahrokok.covid19project.database.CovidDatabase
 
-import com.bocahrokok.covid19project.domain.GridInfo
+import com.bocahrokok.covid19project.domain.News.GridInfo
 import com.bocahrokok.covid19project.network.CovidCityNetwork
 import com.bocahrokok.covid19project.repository.CovidCitiesRepository
+import com.bocahrokok.covid19project.ui.Adapter.GridInfoCardAdapter
 import com.bocahrokok.covid19project.viewmodels.ProfilViewModel
 import com.bocahrokok.covid19project.viewmodels.ProfilViewModelProviderFactory
 import kotlinx.android.synthetic.main.fragment_profile.*
@@ -56,15 +55,38 @@ class ProfileFragment() : Fragment() {
 
         var gridItems: ArrayList<GridInfo> = ArrayList()
 
-        gridItems.add(GridInfo(R.drawable.ic_coronatime, "What is Corona?"))
-        gridItems.add(GridInfo(R.drawable.ic_cough, "Gejala"))
-        gridItems.add(GridInfo(R.drawable.ic_pencegahan, "Pencegahan"))
-        gridItems.add(GridInfo(R.drawable.ic_penyembuhan, "Penyembuhan"))
+        gridItems.add(
+            GridInfo(
+                R.drawable.ic_coronatime,
+                "What is Corona?"
+            )
+        )
+        gridItems.add(
+            GridInfo(
+                R.drawable.ic_cough,
+                "Gejala"
+            )
+        )
+        gridItems.add(
+            GridInfo(
+                R.drawable.ic_pencegahan,
+                "Pencegahan"
+            )
+        )
+        gridItems.add(
+            GridInfo(
+                R.drawable.ic_penyembuhan,
+                "Penyembuhan"
+            )
+        )
 
         rv_grid_list.also {
             it.layoutManager = GridLayoutManager(requireContext(), 2, LinearLayoutManager.VERTICAL, false )
                 it.setHasFixedSize(true)
-                it.adapter = GridInfoCardAdapter(gridItems!!)
+                it.adapter =
+                    GridInfoCardAdapter(
+                        gridItems!!
+                    )
         }
 
 //        profilViewModel.gridListLiveData.observe(viewLifecycleOwner, Observer { list ->
@@ -80,10 +102,30 @@ class ProfileFragment() : Fragment() {
 
         var gridItems: ArrayList<GridInfo> = ArrayList()
 
-            gridItems.add(GridInfo(R.drawable.ic_coronatime, "What is Corona?"))
-            gridItems.add(GridInfo(R.drawable.ic_cough, "Gejala"))
-            gridItems.add(GridInfo(R.drawable.ic_pencegahan, "Pencegahan"))
-            gridItems.add(GridInfo(R.drawable.ic_penyembuhan, "Penyembuhan"))
+            gridItems.add(
+                GridInfo(
+                    R.drawable.ic_coronatime,
+                    "What is Corona?"
+                )
+            )
+            gridItems.add(
+                GridInfo(
+                    R.drawable.ic_cough,
+                    "Gejala"
+                )
+            )
+            gridItems.add(
+                GridInfo(
+                    R.drawable.ic_pencegahan,
+                    "Pencegahan"
+                )
+            )
+            gridItems.add(
+                GridInfo(
+                    R.drawable.ic_penyembuhan,
+                    "Penyembuhan"
+                )
+            )
 
         return gridItems
 

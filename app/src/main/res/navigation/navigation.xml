@@ -16,10 +16,23 @@
             android:id="@+id/home_fragment"
             android:name="com.bocahrokok.covid19project.ui.HomeFragment"
             android:label="fragment_home"
-            tools:layout="@layout/fragment_home" />
+            tools:layout="@layout/fragment_home" >
+        <action
+                android:id="@+id/action_home_fragment_to_newsFragment"
+                app:destination="@id/newsFragment" />
+    </fragment>
     <fragment
             android:id="@+id/fragment_inform"
             android:name="com.bocahrokok.covid19project.ui.ProfileFragment"
             android:label="fragment_profile"
             tools:layout="@layout/fragment_profile" />
+    <fragment
+            android:id="@+id/newsFragment"
+            android:name="com.bocahrokok.covid19project.ui.NewsFragment"
+            android:label="fragment_news"
+            tools:layout="@layout/fragment_news" >
+        <action
+                android:id="@+id/action_newsFragment_to_home_fragment"
+                app:destination="@id/home_fragment" />
+    </fragment>
 </navigation>

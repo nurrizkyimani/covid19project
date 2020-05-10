@@ -1,15 +1,12 @@
-package com.bocahrokok.covid19project.ui
+package com.bocahrokok.covid19project.ui.Adapter
 
 import android.os.Build
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.annotation.RequiresApi
-import androidx.databinding.DataBindingUtil
-import androidx.databinding.ViewDataBinding
 import androidx.recyclerview.widget.RecyclerView
 import com.bocahrokok.covid19project.R
-import com.bocahrokok.covid19project.databinding.RvCityBinding
 import com.bocahrokok.covid19project.domain.CovidCountryData
 import com.bocahrokok.covid19project.util.Utils
 import kotlinx.android.synthetic.main.rv_city.view.*
@@ -21,7 +18,7 @@ class CovidCityListAdapter(val cityList: List<CovidCountryData>) : RecyclerView.
     inner class CityListViewHolder(val rvCityView: View): RecyclerView.ViewHolder(rvCityView)
 
     //create the viewholder
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CityListViewHolder{
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CityListViewHolder {
 //        val layoutInflater = LayoutInflater.from(parent.context)
 //        val binding: RvCityBinding = DataBindingUtil.inflate( layoutInflater, R.layout.rv_city, parent, false)
         val view = LayoutInflater.from(parent.context).inflate(R.layout.rv_city, parent, false)

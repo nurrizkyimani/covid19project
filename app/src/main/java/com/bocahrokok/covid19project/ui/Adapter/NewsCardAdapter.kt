@@ -1,17 +1,12 @@
-package com.bocahrokok.covid19project.ui
+package com.bocahrokok.covid19project.ui.Adapter
 
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.cardview.widget.CardView
-import androidx.databinding.DataBindingUtil
 
-import androidx.databinding.DataBindingUtil.inflate
 import androidx.recyclerview.widget.RecyclerView
 import com.bocahrokok.covid19project.R
-import com.bocahrokok.covid19project.databinding.NewsCardBinding
-import com.bocahrokok.covid19project.domain.Article
-import com.bocahrokok.covid19project.domain.NewsResponse
+import com.bocahrokok.covid19project.domain.News.Article
 import kotlinx.android.synthetic.main.news_card.view.*
 
 class NewsCardAdapter(val newsList: List<Article>): RecyclerView.Adapter<NewsCardAdapter.NewsCardViewHolder>() {

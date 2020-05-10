@@ -15,7 +15,7 @@ import kotlinx.coroutines.launch
 import java.io.IOException
 
 
-class ListViewModel(application: Application, val covidRepository: CovidCitiesRepository): AndroidViewModel(application) {
+class ListViewModel(val covidRepository: CovidCitiesRepository): ViewModel() {
 
 
     private val viewModelScope = CoroutineScope(SupervisorJob() + Dispatchers.Main)

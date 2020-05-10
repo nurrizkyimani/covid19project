@@ -1,11 +1,11 @@
-package com.bocahrokok.covid19project.ui
+package com.bocahrokok.covid19project.ui.Adapter
 
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bocahrokok.covid19project.R
-import com.bocahrokok.covid19project.domain.GridInfo
+import com.bocahrokok.covid19project.domain.News.GridInfo
 import kotlinx.android.synthetic.main.grid_list_item.view.*
 
 class GridInfoCardAdapter(val gridList: List<GridInfo>): RecyclerView.Adapter<GridInfoCardAdapter.GridInfoViewHolder>() {
@@ -15,7 +15,9 @@ class GridInfoCardAdapter(val gridList: List<GridInfo>): RecyclerView.Adapter<Gr
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): GridInfoViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.grid_list_item, parent, false)
-        return GridInfoViewHolder(view)
+        return GridInfoViewHolder(
+            view
+        )
     }
 
     override fun getItemCount(): Int {
