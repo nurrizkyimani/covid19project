@@ -14,6 +14,7 @@ import com.bocahrokok.covid19project.database.CovidDatabase
 import com.bocahrokok.covid19project.network.CovidCityNetwork
 import com.bocahrokok.covid19project.repository.CovidCitiesRepository
 import com.bocahrokok.covid19project.ui.Adapter.NewsCardAdapter
+import com.bocahrokok.covid19project.ui.Adapter.NewsCardMainAdapter
 import com.bocahrokok.covid19project.viewmodels.HomeViewModel
 import com.bocahrokok.covid19project.viewmodels.HomeViewModelProviderFactory
 import kotlinx.android.synthetic.main.fragment_news.*
@@ -42,12 +43,13 @@ class NewsFragment : Fragment() {
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
+
         homeViewModel.newsResponseList.observe(viewLifecycleOwner, Observer { list ->
             rv_news_main.also {
-                it.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
+                it.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false)
                 it.setHasFixedSize(true)
                 it.adapter =
-                    NewsCardAdapter(list)
+                    NewsCardMainAdapter(list)
             }
         })
     }
