@@ -14,7 +14,9 @@ A covid-19 apps that track news and current covid-19 data. Implement MVVM archit
 3. LiveData
 4. MVVM
 5. Kotlin Coroutines
-6. Mathdroid Covid-19 API https://github.com/mathdroid/covid-19-api
+6. Navigation Library
+7. RecylerView 
+8. Mathdroid Covid-19 API https://github.com/mathdroid/covid-19-api
 
 ### Inspired by (use as design & code referece)
 1. Android kotlin-mvvm-covid19 by rizmaulana https://github.com/rizmaulana/kotlin-mvvm-covid19
