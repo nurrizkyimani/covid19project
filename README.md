@@ -1,4 +1,4 @@
-# covid-19 Infomation Tracker
+# Covid-19 Infomation Tracker
 
 A covid-19 apps that track news and current covid-19 data. Implement MVVM architecture using Room Database, Retrofit, Livedata.
 
