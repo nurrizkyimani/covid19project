@@ -16,6 +16,7 @@ A covid-19 apps that track news and current covid-19 data. Implement MVVM archit
 5. Kotlin Coroutines
 6. Navigation Library
 7. RecylerView 
+8. NewsApi API https://newsapi.org/
 8. Mathdroid Covid-19 API https://github.com/mathdroid/covid-19-api
 
 ### Inspired by (use as design & code referece)
