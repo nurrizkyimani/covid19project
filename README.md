@@ -9,8 +9,8 @@ A covid-19 apps that track news and current covid-19 data. Implement MVVM archit
  </p>
  
 ### Download
+[Download APK](https://drive.google.com/file/d/1m0q2A69yFnJi9cr3YVrAhZJSF_NDXzrI/view?usp=sharing)
 
-https://drive.google.com/file/d/1m0q2A69yFnJi9cr3YVrAhZJSF_NDXzrI/view?usp=sharing
 
 ### Library & Api in Use:
 1. Room Database
