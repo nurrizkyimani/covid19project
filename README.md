@@ -7,6 +7,10 @@ A covid-19 apps that track news and current covid-19 data. Implement MVVM archit
   <img src="https://github.com/nurrizkyimani/covid19project/blob/master/Pic/list_covid.png" width="250">
   <img src="https://github.com/nurrizkyimani/covid19project/blob/master/Pic/profil_device.png" width="250">
  </p>
+ 
+### Download
+
+https://drive.google.com/file/d/1m0q2A69yFnJi9cr3YVrAhZJSF_NDXzrI/view?usp=sharing
 
 ### Library & Api in Use:
 1. Room Database
